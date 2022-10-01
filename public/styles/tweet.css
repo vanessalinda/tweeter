@@ -35,3 +35,7 @@ article.tweet footer {
 .tweet-icons {
   color: #4056A1;
 }
+
+.tweet-icons i {
+  margin: 0 5px 0 5px;
+}
