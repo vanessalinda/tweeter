@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -56,7 +57,7 @@
     </nav>
 
     <!-- Header -->
-    <header>
+    <header class="main-header">
       <div>
         <img src="/images/profile-hex.png" />
       </div>
@@ -80,15 +81,30 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
-          <label for="tweet-text" class="tweet-label"
-            >What are you humming about?</label
-          >
+          <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
-          <footer class="footer">
-            <button type="submit" class="submit-tweet">Tweet</button>
+          <footer>
+            <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </footer>
         </form>
+      </section>
+      <section>
+        <article class="tweet">
+          <header>
+            <span class="tweet-name">Vanessa</span>
+            <span class="tweet-username">@Vanessalinda</span>
+          </header>
+          <p>Hello!</p>
+          <footer>
+            <span class="tweet-time">10 days ago</span>
+            <span class="tweet-icons">
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-sharp fa-solid fa-retweet"></i>
+              <i class="fa-sharp fa-solid fa-heart"></i>
+            </span>
+          </footer>
+        </article>
       </section>
     </main>
   </body>

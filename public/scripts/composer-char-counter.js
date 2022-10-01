@@ -3,7 +3,7 @@ $(document).ready(function () {
   // --- our code goes here ---
   // console.log("Ready!");
   $("#tweet-text").on("keyup", function () {
-    // console.log(this);
+    console.log(this);
     let characterCount = $(this).val().length;
     // console.log(characterCount);
     const counter = $(this).next().find("output");

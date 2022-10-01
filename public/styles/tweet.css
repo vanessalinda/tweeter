@@ -1,0 +1,37 @@
+.tweet {
+  width: 100%;
+  border: 5px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+article.tweet header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+article.tweet p {
+  padding: 8px;
+  font-weight: 600;
+}
+
+.tweet-username {
+  color: lightslategray;
+}
+
+article.tweet footer {
+  border-top: 5px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-size: smaller;
+}
+
+/* .tweet-time {
+  font-size: small;
+} */
+
+.tweet-icons {
+  color: #4056A1;
+}
