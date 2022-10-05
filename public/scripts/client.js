@@ -77,9 +77,10 @@ $(document).ready(function () {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
+    $("#tweets-container").empty();
     for (let tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $("#tweets-container").append($tweet);
+      $("#tweets-container").prepend($tweet);
     }
     // const allTweets = tweets.map((tweet) => createTweetElement(tweet));
     // return allTweets;
@@ -107,14 +108,20 @@ $(document).ready(function () {
   // $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
   $(".tweet-form").on("submit", function (event) {
     event.preventDefault();
-    console.log(event.target);
-    //const $tweetText = $(this).find("textarea").val();
-    const serializedData = $(event.target).serialize();
-    console.log(serializedData);
+    const $tweetText = $(this).find("textarea");
+    let characterCount = $tweetText.val().length;
 
-    $.post("/tweets", serializedData, (response) => {
-      console.log(response);
-      loadTweets();
-    });
+    if (characterCount > 140) {
+      alert("Please ensure your tweet is under 140 characters.");
+    } else if (characterCount <= 0) {
+      alert("Please ensure your tweet is not empty.");
+    } else {
+      const serializedData = $(event.target).serialize();
+
+      $.post("/tweets", serializedData, (response) => {
+        console.log(response);
+        loadTweets();
+      });
+    }
   });
 });
