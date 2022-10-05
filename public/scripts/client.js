@@ -7,30 +7,47 @@
 
 $(document).ready(function () {
   // --- our code goes here ---
-  const data = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
+  // const data = [
+  //   {
+  //     user: {
+  //       name: "Newton",
+  //       avatars: "https://i.imgur.com/73hZDYK.png",
+  //       handle: "@SirIsaac",
+  //     },
+  //     content: {
+  //       text: "If I have seen further it is by standing on the shoulders of giants",
+  //     },
+  //     created_at: 1461116232227,
+  //   },
+  //   {
+  //     user: {
+  //       name: "Descartes",
+  //       avatars: "https://i.imgur.com/nlhLi3I.png",
+  //       handle: "@rd",
+  //     },
+  //     content: {
+  //       text: "Je pense , donc je suis",
+  //     },
+  //     created_at: 1461113959088,
+  //   },
+  // ];
+
+  const loadTweets = () => {
+    $.ajax({
+      url: "/tweets",
+      method: "GET",
+      dataType: "json",
+      success: (tweets) => {
+        console.log("data", tweets);
+        renderTweets(tweets);
       },
-      content: {
-        text: "If I have seen further it is by standing on the shoulders of giants",
+      error: (err) => {
+        console.log(`error: ${err}`);
       },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1461113959088,
-    },
-  ];
+    });
+  };
+
+  loadTweets();
 
   const createTweetElement = function (tweetData) {
     const { user, content, created_at } = tweetData;
@@ -67,7 +84,7 @@ $(document).ready(function () {
     // return allTweets;
   };
 
-  renderTweets(data);
+  // renderTweets(data);
 
   // // Test / driver code (temporary). Eventually will get this from the server.
   // const tweetData = {
@@ -96,6 +113,7 @@ $(document).ready(function () {
 
     $.post("/tweets", serializedData, (response) => {
       console.log(response);
+      loadTweets();
     });
   });
 });
