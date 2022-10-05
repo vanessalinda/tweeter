@@ -32,18 +32,6 @@ $(document).ready(function () {
     },
   ];
 
-  const renderTweets = function (tweets) {
-    // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
-    for (let tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $("#tweets-container").append($tweet);
-    }
-    // const allTweets = tweets.map((tweet) => createTweetElement(tweet));
-    // return allTweets;
-  };
-
   const createTweetElement = function (tweetData) {
     const { user, content, created_at } = tweetData;
     const $tweet = $(`<article class="tweet">
@@ -67,6 +55,18 @@ $(document).ready(function () {
     return $tweet;
   };
 
+  const renderTweets = function (tweets) {
+    // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
+    for (let tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $("#tweets-container").append($tweet);
+    }
+    // const allTweets = tweets.map((tweet) => createTweetElement(tweet));
+    // return allTweets;
+  };
+
   renderTweets(data);
 
   // // Test / driver code (temporary). Eventually will get this from the server.
@@ -87,4 +87,15 @@ $(document).ready(function () {
   // // Test / driver code (temporary)
   // console.log($tweet); // to see what it looks like
   // $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  $(".tweet-form").on("submit", function (event) {
+    event.preventDefault();
+    console.log(event.target);
+    //const $tweetText = $(this).find("textarea").val();
+    const serializedData = $(event.target).serialize();
+    console.log(serializedData);
+
+    $.post("/tweets", serializedData, (response) => {
+      console.log(response);
+    });
+  });
 });
