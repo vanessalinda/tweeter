@@ -106,10 +106,11 @@ $(document).ready(function () {
   // // Test / driver code (temporary)
   // console.log($tweet); // to see what it looks like
   // $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-  $(".tweet-form").on("submit", function (event) {
+  const form = $(".tweet-form");
+  form.on("submit", function (event) {
     event.preventDefault();
-    const $tweetText = $(this).find("textarea");
-    let characterCount = $tweetText.val().length;
+    const tweetText = $(this).find("textarea");
+    let characterCount = tweetText.val().length;
 
     if (characterCount > 140) {
       alert("Please ensure your tweet is under 140 characters.");
@@ -119,9 +120,12 @@ $(document).ready(function () {
       const serializedData = $(event.target).serialize();
 
       $.post("/tweets", serializedData, (response) => {
-        console.log(response);
+        //console.log(response);
         loadTweets();
       });
+
+      //console.log(this);
+      form.trigger("reset");
     }
   });
 });
