@@ -52,6 +52,13 @@ $(document).ready(function () {
   const createTweetElement = function (tweetData) {
     const { user, content, created_at } = tweetData;
     const timePassed = timeago.format(created_at);
+
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
     const $tweet = $(`<article class="tweet">
     <header>
       <div>
@@ -60,7 +67,7 @@ $(document).ready(function () {
       </div>
       <span class="tweet-username">${user.handle}</span>
     </header>
-    <p>${content.text}</p>
+    <p>${escape(content.text)}</p>
     <footer>
       <span class="tweet-time">${timePassed}</span>
       <span class="tweet-icons">
@@ -70,6 +77,7 @@ $(document).ready(function () {
       </span>
     </footer>
   </article>`);
+
     return $tweet;
   };
 
@@ -112,10 +120,14 @@ $(document).ready(function () {
     const tweetText = $(this).find("textarea");
     let characterCount = tweetText.val().length;
 
+    const errMessage = $(".error-message");
+
     if (characterCount > 140) {
-      alert("Please ensure your tweet is under 140 characters.");
+      errMessage.html("Please ensure your tweet is under 140 characters.");
+      // alert("Please ensure your tweet is under 140 characters.");
     } else if (characterCount <= 0) {
-      alert("Please ensure your tweet is not empty.");
+      errMessage.text("Please ensure your tweet is not empty.");
+      // alert("Please ensure your tweet is not empty.");
     } else {
       const serializedData = $(event.target).serialize();
 
