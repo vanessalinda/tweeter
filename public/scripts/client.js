@@ -121,15 +121,16 @@ $(document).ready(function () {
     let characterCount = tweetText.val().length;
 
     const errMessage = $("#error-message");
+    const errMessageText = errMessage.find("span");
 
     if (characterCount > 140) {
       errMessage.slideUp();
-      errMessage.html("Please ensure your tweet is under 140 characters.");
+      errMessageText.text("Please ensure your tweet is under 140 characters.");
       errMessage.slideDown();
       // alert("Please ensure your tweet is under 140 characters.");
     } else if (characterCount <= 0) {
       errMessage.slideUp();
-      errMessage.text("Please ensure your tweet is not empty.");
+      errMessageText.text("Please ensure your tweet is not empty.");
       errMessage.slideDown();
       // alert("Please ensure your tweet is not empty.");
     } else {
