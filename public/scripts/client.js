@@ -120,15 +120,21 @@ $(document).ready(function () {
     const tweetText = $(this).find("textarea");
     let characterCount = tweetText.val().length;
 
-    const errMessage = $(".error-message");
+    const errMessage = $("#error-message");
 
     if (characterCount > 140) {
+      errMessage.slideUp();
       errMessage.html("Please ensure your tweet is under 140 characters.");
+      errMessage.slideDown();
       // alert("Please ensure your tweet is under 140 characters.");
     } else if (characterCount <= 0) {
+      errMessage.slideUp();
       errMessage.text("Please ensure your tweet is not empty.");
+      errMessage.slideDown();
       // alert("Please ensure your tweet is not empty.");
     } else {
+      errMessage.slideUp();
+
       const serializedData = $(event.target).serialize();
 
       $.post("/tweets", serializedData, (response) => {
