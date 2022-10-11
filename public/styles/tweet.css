@@ -5,6 +5,10 @@
   margin-bottom: 10px;
 }
 
+.tweet:hover {
+  box-shadow: 10px 10px 5px #b3bbd9;
+}
+
 article.tweet header {
   display: flex;
   justify-content: space-between;
@@ -43,8 +47,13 @@ article.tweet footer {
 
 .tweet-icons {
   color: #4056A1;
+  /* margin: 0 5px 0 5px; */
 }
 
 .tweet-icons i {
   margin: 0 5px 0 5px;
+}
+
+.tweet-icons i:hover {
+  color: #FFAC1C;
 }
