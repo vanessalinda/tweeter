@@ -68,4 +68,8 @@ main {
     margin: 220px 40px 10px 40px;
     /* height: 100vh; */
   }
+
+  nav {
+    background-color: #4056a1;
+  }
 }
