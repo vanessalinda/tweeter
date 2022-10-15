@@ -17,14 +17,14 @@
 }
 
 .new-tweet footer {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
 
 .new-tweet button {
-  background-color: #4056A1;
+  background-color: #4056a1;
   color: white;
   border: none;
   padding: 5px 15px;
@@ -33,6 +33,7 @@
 #error-message {
   width: 100%;
   padding: 5px;
+  margin-bottom: 10px;
   border: 5px solid red;
   color: red;
   text-align: center;

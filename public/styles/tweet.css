@@ -12,11 +12,13 @@
 article.tweet header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 8px;
 }
 
-article.tweet div {
+article.tweet header div {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -41,13 +43,8 @@ article.tweet footer {
   font-size: small;
 }
 
-/* .tweet-time {
-  font-size: small;
-} */
-
 .tweet-icons {
-  color: #4056A1;
-  /* margin: 0 5px 0 5px; */
+  color: #4056a1;
 }
 
 .tweet-icons i {
@@ -55,5 +52,5 @@ article.tweet footer {
 }
 
 .tweet-icons i:hover {
-  color: #FFAC1C;
+  color: #ffac1c;
 }

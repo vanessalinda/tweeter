@@ -46,27 +46,11 @@ main {
   .main-header {
     width: 40%;
     margin: 200px 40px 0px 40px;
-    /* padding: 20px; */
-    /* height: 600px; */
-    /* height: 100vh; */
   }
-
-  /* .main-header {
-    height: 520px;
-    width: 100%;
-    background-color: #c3cae1;
-    color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    background-image: url("../images/3px-tile.png");
-  } */
 
   main {
     width: 60%;
     margin: 220px 40px 10px 40px;
-    /* height: 100vh; */
   }
 
   nav {
