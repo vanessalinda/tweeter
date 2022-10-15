@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  //grabbing all of the tweets via ajax
   const loadTweets = () => {
     $.ajax({
       url: "/tweets",
@@ -16,6 +17,7 @@ $(document).ready(function () {
 
   loadTweets();
 
+  //create individual tweet
   const createTweetElement = function (tweetData) {
     const { user, content, created_at } = tweetData;
     const timePassed = timeago.format(created_at);
@@ -48,6 +50,7 @@ $(document).ready(function () {
     return $tweet;
   };
 
+  //rendering all of the tweets after grabbing them via ajax into the tweet container
   const renderTweets = function (tweets) {
     $("#tweets-container").empty();
     for (let tweet of tweets) {
@@ -56,6 +59,7 @@ $(document).ready(function () {
     }
   };
 
+  //tweet form - posting to the tweets data and handling errors
   const form = $(".tweet-form");
   form.on("submit", function (event) {
     event.preventDefault();
