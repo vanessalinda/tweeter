@@ -87,6 +87,7 @@ $(document).ready(function () {
       });
 
       form.trigger("reset");
+      $(".counter").text("140");
     }
   });
 });
